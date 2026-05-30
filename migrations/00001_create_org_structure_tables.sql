@@ -3,7 +3,11 @@ CREATE TABLE departments (
                              id SERIAL PRIMARY KEY,
                              name VARCHAR(200) NOT NULL,
                              parent_id INT REFERENCES departments(id) ON DELETE CASCADE,
-                             created_at TIMESTAMP DEFAULT NOW()
+                             created_at TIMESTAMP DEFAULT NOW(),
+
+                            UNIQUE (name, parent_id)
+
+
 );
 
 CREATE TABLE employees (
